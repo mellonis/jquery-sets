@@ -1,6 +1,7 @@
 'use strict';
 
 // obvious comment
+// new obvious comment
 
 var gulp = require('gulp'),
     uglify = require('gulp-uglify'),
@@ -19,3 +20,5 @@ gulp.task('uglify', function () {
 gulp.task('dist', ['uglify']);
 
 gulp.task('default', ['dist']);
+
+// new not obvious comment
