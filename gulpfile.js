@@ -22,3 +22,4 @@ gulp.task('dist', ['uglify']);
 gulp.task('default', ['dist']);
 
 // new not obvious comment
+// TODO: delete all comments in this file
