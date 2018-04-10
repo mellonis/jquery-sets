@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Test page</title>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="dist/jquery-sets.min.js"></script>
+    <style>
+        section:not(:first-child) {
+            margin-top: 15px;
+        }
+        section .title {
+            color: gray;
+        }
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            display: inline-block;
+            padding: 6px;
+        }
+
+        li.first-set {
+            text-decoration: underline;
+        }
+
+        li.second-set {
+            text-decoration: overline;
+        }
+
+        li.first-set.second-set {
+            text-decoration: underline overline;
+        }
+
+        li.result-set {
+            outline: 1px dotted green;
+        }
+    </style>
+</head>
+<body>
+<section>
+    <span class="title">Intersect</span>
+    <ul class="intersect">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+</section>
+<section>
+    <span class="title">Union</span>
+    <ul class="union">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+    </ul>
+</section>
+<section>
+    <span class="title">Except</span>
+    <ul class="except">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+</section>
+<section>
+    <span class="title">* Legend</span>
+    <ul>
+        <li class="first-set">First set</li>
+        <li class="second-set">Second set</li>
+        <li class="first-set second-set">First and second set</li>
+        <li class="result-set">Result set</li>
+    </ul>
+</section>
+<script>
+    'use strict';
+    void function () {
+        var elements, first_set, second_set;
+
+        ['intersect', 'union', 'except'].forEach(function (method) {
+            elements = $('li', $('.' + method));
+            first_set = elements.slice(0, 3).addClass('first-set');
+            second_set = elements.slice(2, 5).addClass('second-set');
+            first_set[method](second_set).addClass('result-set');
+        });
+
+        console.log(second_set.subsetOf(first_set));
+        console.log(first_set.subsetOf(second_set));
+        console.log(first_set.equivalent(first_set));
+        console.log(first_set.equivalent(second_set));
+    }();
+</script>
+</body>
+</html>

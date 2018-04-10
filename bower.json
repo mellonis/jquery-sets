@@ -1,0 +1,19 @@
+{
+  "name": "jquery-sets",
+  "version": "0.0.0",
+  "homepage": "https://github.com/mellonis/jquery-sets",
+  "authors": [
+    "mellonis <mellonis@mellonis.ru>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "jquery": "^3.1.0"
+  }
+}
